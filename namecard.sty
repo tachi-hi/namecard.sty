@@ -1,0 +1,82 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{namecard}
+
+% Following setting is based on the site http://www.w3-4f5f.ee.uec.ac.jp/nameCard/
+
+\setlength{\textwidth}{182truemm}
+\setlength{\hoffset}{0in}
+\setlength{\voffset}{0in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\oddsidemargin}{14truemm}
+\setlength{\textheight}{275truemm}
+\setlength{\topmargin}{16truemm}
+\advance\oddsidemargin -1in
+\advance\topmargin -1in
+\setlength{\footskip}{0in}
+
+\parindent=0pt
+\pagestyle{empty}
+
+
+\newcommand{\setCompany}[1]{\def\getCompany{#1}}
+\newcommand{\setDepartment}[1]{\def\getDepartment{#1}}
+\newcommand{\setName}[1]{\def\getName{#1}}
+\newcommand{\setNameEnglish}[1]{\def\getNameEnglish{#1}}
+\newcommand{\setAddress}[1]{\def\getAddress{#1}}
+\newcommand{\setPhone}[1]{\def\getPhone{#1}}
+\newcommand{\setEmail}[1]{\def\getEmail{#1}}
+\newcommand{\setKatagaki}[1]{\def\getKatagaki{#1}}
+
+
+\newcommand{\SetLeftMarginOfNameCard}[1]{\def\GetLeftMarginOfNameCard{#1}}
+\newcommand{\SetIndentOfNameCard}[1]{\def\GetIndentOfNameCard{#1}}
+
+
+\newcommand{\makeNameCard}{
+\begin{picture}(182,275)(0,0)
+	\multiput(0,0)(0,55.0){5}{%
+		\multiput(0,0)(91,0){2}{%
+			% Company
+			\begin{picture}(91,55)(0,0)
+
+			\put(\GetLeftMarginOfNameCard,47){
+				\noindent
+				\begin{minipage}{91truemm}
+					\noindent 
+					{\bf\large \noindent\getCompany}
+					\newline
+					{\bf \noindent \getDepartment}
+				\end{minipage}
+			}
+
+			% Name
+			\put(\GetIndentOfNameCard,30){
+				\noindent
+				\begin{minipage}{27truemm}
+					\scriptsize \getKatagaki
+				\end{minipage}
+				\begin{minipage}{60truemm}
+					{\bf\large{\getName}} \\
+					{\footnotesize{\getNameEnglish}}
+				\end{minipage}
+			}
+		
+			% Address
+			\put(\GetIndentOfNameCard,14){
+				\begin{minipage}{91truemm}
+					\noindent
+					\scriptsize
+					\getAddress \\
+					\getPhone \\
+					\getEmail \\
+				\end{minipage}
+			}
+			\end{picture}
+		}
+	}
+\end{picture}
+\par
+%
+}
+
