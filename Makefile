@@ -4,7 +4,6 @@
 #   make              Build PDF using LuaLaTeX (default)
 #   make lualatex     Build PDF using LuaLaTeX
 #   make uplatex      Build PDF using upLaTeX
-#   make icons        Build PDF with icons using LuaLaTeX
 #   make all          Build all variants
 #   make clean        Remove intermediate files
 #   make distclean    Remove all generated files including PDF
@@ -12,7 +11,7 @@
 SAMPLE = sample
 STY = namecard.sty
 
-.PHONY: default lualatex uplatex icons all clean distclean
+.PHONY: default lualatex uplatex all clean distclean
 
 # Default target: LuaLaTeX
 default: lualatex
@@ -26,7 +25,7 @@ uplatex: $(SAMPLE).tex $(STY)
 	latexmk -pdfdvi -latex='uplatex -synctex=1 -interaction=nonstopmode' $(SAMPLE).tex
 
 # Build all variants
-all: lualatex uplatex icons
+all: lualatex uplatex
 
 # Clean intermediate files
 clean:
