@@ -1,7 +1,35 @@
-*.dvi
-*.pdf
+# LaTeX intermediate files
 *.aux
+*.log
+*.dvi
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex.gz(busy)
+*.toc
+*.out
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*-blx.bib
+
+# Output files
+*.pdf
+
+# Backup files
 *~
 *.bak
-*.log
+*.backup
+*.swp
 
+# Editor files
+.vscode/
+.idea/
+*.sublime-*
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db

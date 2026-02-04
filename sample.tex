@@ -1,26 +1,63 @@
-\documentclass[a4paper]{jarticle}
-\usepackage{namecard}
-\usepackage{pxfonts}
-%\makeNameCard
+% sample.tex - namecard.sty サンプルファイル
+%
+% 対応エンジン: LuaLaTeX (推奨), XeLaTeX, upLaTeX
+%
+% ビルド方法:
+%   latexmk sample.tex          (デフォルト: LuaLaTeX)
+%   latexmk -xelatex sample.tex (XeLaTeX)
+%   latexmk -pdfdvi -latex='uplatex' sample.tex (upLaTeX)
+\documentclass[a4paper]{jlreq}
 
-\setCompany{������� ��������}
-\setDepartment{������ ������}
-\setName{���¡��׷ʻ�}
-\setNameEnglish{Kukeko KAKI}
-\setAddress{��100-xxxx ����������Ķ������1����1�֡����ӥ�8��}
-\setPhone{TEL: \texttt{03-xxxx-xxxx}(��ɽ) / \texttt{03-xxxx-xxxx}(ľ��)}
-\setEmail{Email: \texttt{kakikukeko@xxxxxxxx.com}}
-\setKatagaki{ %
-	��Ǥ \\
-	��� (����) \\
-}
+% namecard パッケージを読み込み
+\usepackage[icons,frame]{namecard}
 
+%% ============================================================================
+%% 名刺の内容を設定
+%% ============================================================================
+
+% 会社名・部署名
+\setCompany{サンプル株式会社}
+\setDepartment{技術部}
+
+% 氏名（日本語・英語）
+\setName{東京 太郎}
+\setNameEnglish{Taro TOKYO}
+
+% 住所（架空）
+\setAddress{〒000-0000 サンプル県サンプル市1-2-3}
+
+% 電話番号（ダミー）
+\setPhone{\texttt{03-0000-0000}}
+
+% メールアドレス（ダミー）
+\setEmail{\texttt{tokyo@example.com}}
+
+% 肩書き
+\setKatagaki{主任}
+
+%% ============================================================================
+%% レイアウト調整
+%% ============================================================================
+
+% 名刺内の左余白（mm）
 \SetLeftMarginOfNameCard{5}
+
+% コンテンツのインデント（mm）
 \SetIndentOfNameCard{10}
+
+% 単位長を1mmに設定（必須）
 \setlength{\unitlength}{1truemm}
 
-\begin{document}
-\makeNameCard
-\makeNameCard
-\end{document}
+%% ============================================================================
+%% 名刺を出力
+%% ============================================================================
 
+\begin{document}
+
+% 1ページ分（10枚）の名刺を出力
+\makeNameCard
+
+% 2ページ目が必要な場合は追加
+% \makeNameCard
+
+\end{document}
